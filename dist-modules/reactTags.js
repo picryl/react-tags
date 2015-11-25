@@ -25,6 +25,7 @@ var ReactTags = React.createClass({
 
     propTypes: {
         tags: React.PropTypes.array,
+        status: React.PropTypes.element,
         placeholder: React.PropTypes.string,
         labelField: React.PropTypes.string,
         suggestions: React.PropTypes.array,
@@ -204,6 +205,7 @@ var ReactTags = React.createClass({
         var tagInput = React.createElement(
             'div',
             { className: 'ReactTags__tagInput' },
+            this.props.status,
             React.createElement('input', { ref: 'input',
                 type: 'text',
                 placeholder: placeholder,
