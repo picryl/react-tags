@@ -4,7 +4,7 @@ var React = require('react');
 
 // determines the min query length for which
 // suggestions are displayed
-var MIN_QUERY_LENGTH = 2;
+var MIN_QUERY_LENGTH = 1;
 
 var Suggestions = React.createClass({
     displayName: "Suggestions",
