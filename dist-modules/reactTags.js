@@ -41,7 +41,10 @@ var ReactTags = React.createClass({
             tags: [],
             suggestions: [],
             autofocus: true,
-            inline: true
+            inline: true,
+            isTagValid: function isTagValid() {
+                return true;
+            }
         };
     },
     componentDidMount: function componentDidMount() {
@@ -61,7 +64,7 @@ var ReactTags = React.createClass({
         var _this = this;
 
         var suggestions = props.suggestions.filter(function (item) {
-            return item.toLowerCase().search(_this.state.query.toLowerCase()) === 0;
+            return item.toLowerCase().indexOf(_this.state.query.toLowerCase()) === 0;
         });
 
         this.setState({
@@ -191,6 +194,7 @@ var ReactTags = React.createClass({
         var tagItems = this.props.tags.map((function (tag, i) {
             return React.createElement(Tag, { key: tag.id,
                 tag: tag,
+                isValid: this.props.isTagValid(tag),
                 labelField: this.props.labelField,
                 onDelete: this.handleDelete.bind(this, i),
                 moveTag: this.moveTag });

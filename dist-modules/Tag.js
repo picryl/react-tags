@@ -46,7 +46,8 @@ var Tag = React.createClass({
         labelField: React.PropTypes.string,
         onDelete: React.PropTypes.func.isRequired,
         tag: React.PropTypes.object.isRequired,
-        moveTag: React.PropTypes.func.isRequired
+        moveTag: React.PropTypes.func.isRequired,
+        isValid: React.PropTypes.bool.isRequired
     },
     getDefaultProps: function getDefaultProps() {
         return {
@@ -63,7 +64,7 @@ var Tag = React.createClass({
         return connectDragSource(connectDropTarget(React.createElement(
             'span',
             { style: { opacity: isDragging ? 0 : 1 },
-                className: 'ReactTags__tag' },
+                className: 'ReactTags__tag ' + (this.props.isValid ? 'is-valid' : '') },
             label,
             React.createElement(
                 'a',
